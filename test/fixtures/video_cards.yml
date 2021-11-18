@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manufacturer_id: 1
+  model_name: MyString
+  memory_capacity: MyString
+  memory_frequency: MyString
+  memory_type: MyString
+
+two:
+  manufacturer_id: 1
+  model_name: MyString
+  memory_capacity: MyString
+  memory_frequency: MyString
+  memory_type: MyString

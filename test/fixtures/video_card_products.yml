@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  videocard_id: 1
+  title: MyString
+  min_price: 1
+  max_price: 1
+  memory_capacity_id: 1
+  memory_frequency_id: 1
+  memory_type_id: 1
+  image_url: MyString
+  reference_url: MyString
+
+two:
+  videocard_id: 1
+  title: MyString
+  min_price: 1
+  max_price: 1
+  memory_capacity_id: 1
+  memory_frequency_id: 1
+  memory_type_id: 1
+  image_url: MyString
+  reference_url: MyString

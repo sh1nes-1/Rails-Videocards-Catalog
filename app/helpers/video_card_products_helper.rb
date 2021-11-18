@@ -1,0 +1,2 @@
+module VideoCardProductsHelper
+end

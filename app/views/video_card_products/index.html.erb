@@ -1,0 +1,78 @@
+<form>
+<div class="container">
+  <div class="input-group mb-3">
+    <input name="search" value="<%= @search %>" type="text" class="form-control" placeholder="AMD Radeon RX 570" aria-label="AMD Radeon RX 570" aria-describedby="button-addon2">
+    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+  </div>
+
+  <div class="d-flex">
+    <div class="col-9">
+      <% @products.each do |product| %>
+        <div class="card mb-3" >
+          <div class="row g-0">
+            <div class="col-md-3 my-auto text-center">
+              <a href="<%= product.reference_url %>"><img src="<%= product.image_url %>" class="img-fluid rounded-start" alt="<%= product.title %>"></a>
+            </div>
+
+            <div class="col-md-9">
+
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-8">
+                    <a class="text-decoration-none" href="<%= product.reference_url %>"><h5 class="card-title"><%= product.title %></h5></a>
+                    <div><span class="text-secondary">GPU:</span>              <%= product.video_card.gpu_name %></div>
+                    <div><span class="text-secondary">Memory Type:</span>      <%= product.video_card.memory_type %></div>
+                    <div><span class="text-secondary">Memory Frequency:</span> <%= product.video_card.memory_frequency %></div>
+                    <div><span class="text-secondary">Memory Capacity:</span>  <%= product.video_card.memory_capacity %></div>
+                  </div>
+
+                  <div class="col-4">
+                    <div style="text-align: right">
+                      <b class="text-secondary"><%= product.min_price %> - <%= product.max_price %> грн.</b>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <%= paginate @products %>
+    </div>
+
+    <div class="col-3"  style="padding-left: 15px">
+      <div class="card">
+        <div class="card-body">
+          <h5>Parameters</h5>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="min_price">Min price</label>
+              <input name="min_price" type="text" class="form-control" id="min_price" value="<%= @min_price %>">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="max_price">Max Price</label>
+              <input name="max_price" type="text" class="form-control" id="max_price" value="<%= @max_price %>">
+            </div>
+          </div>
+
+          <h5>Manufacturers</h5>
+          <div class="row px-3 mb-3">
+            <% @manufacturers.each do |manufacturer| %>
+              <div class="form-check form-check-inline">
+                <label for="manufacturer-<%= manufacturer.id %>"><%= manufacturer.name %></label>
+                <input name="manufacturers[]" class="form-check-input" type="checkbox" id="manufacturer-<%= manufacturer.id %>" value="<%= manufacturer.id %>" <%= @manufacturers_params and @manufacturers_params.include?(manufacturer.id.to_s) ? 'checked' : '' %>>
+              </div>
+            <% end %>
+          </div>
+
+          <button class="col-12 btn btn-primary" type="submit">Apply</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</form>
